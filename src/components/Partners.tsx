@@ -38,7 +38,7 @@ const services = [
 ];
 
 export default function Partners() {
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     triggerOnce: true,
     threshold: 0.01,
     rootMargin: '50px',
@@ -65,7 +65,7 @@ export default function Partners() {
             </motion.div>
           ))}
         </div>
-        <div className="flex justify-between items-center space-x-8 py-8 overflow-x-auto">
+        <div className="flex justify-between items-center space-x-8 py-4 overflow-x-auto">
           {partners.map((partner, index) => (
             <motion.div
               key={index}
@@ -77,7 +77,7 @@ export default function Partners() {
               <img
                 src={partner.url}
                 alt={partner.name}
-                className="h-12 w-auto grayscale hover:grayscale-0 transition-all"
+                className="h-20 w-auto grayscale hover:grayscale-0 transition-all transform hover:scale-110 duration-300"
               />
             </motion.div>
           ))}

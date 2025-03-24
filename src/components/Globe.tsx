@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+// import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
@@ -45,7 +45,7 @@ const Scene = () => {
 };
 
 const Globe: React.FC = () => {
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
   const isMobile = window.innerWidth < 768;
 
   return (

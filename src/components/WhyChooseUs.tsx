@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Award, Clock, Users, Shield } from 'lucide-react';
-import Globe from './Globe';
 
 const reasons = [
   {
@@ -33,6 +32,8 @@ export default function WhyChooseUs() {
     threshold: 0.01,
     rootMargin: '50px',
   });
+
+  console.log(inView);
 
   return (
     <section ref={ref} className="py-16 relative overflow-hidden bg-gray-100 dark:bg-gray-800">

@@ -1,21 +1,23 @@
 import { motion } from 'framer-motion';
-import YouTube from 'react-youtube';
-import AnimatedText from './AnimatedText';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
+import AnimatedText from './AnimatedText';
 
 const slides = [
   {
-    videoId: 'GPPSuD8BcLU',
+    title: 'Be Pakistani Buy Pakistani',
+    subtitle: 'Elevating machinery excellence nationwide'
+  },
+  {
     title: 'Tederic Injection Molding',
     subtitle: 'Next-generation precision and efficiency'
   },
   {
-    videoId: 'vYBzgzWPNZE',
     title: 'UWA Gen 5 Series',
     subtitle: 'Advanced automation solutions'
   }
 ];
+
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -32,20 +34,12 @@ export default function Hero() {
       <div className="relative h-full flex items-center justify-center">
         <div className="relative w-full h-full">
           <div className="absolute inset-0">
-            <YouTube
-              videoId={slides[currentSlide].videoId}
-              opts={{
-                width: '100%',
-                height: '100%',
-                playerVars: {
-                  autoplay: 1,
-                  mute: 1,
-                  loop: 1,
-                  controls: 0,
-                  modestbranding: 1,
-                },
-              }}
-              className="w-full h-full object-cover"
+            <iframe
+              src={`https://www.youtube.com/embed/GPPSuD8BcLU?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&playlist=GPPSuD8BcLU`}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="w-full h-full object-cover scale-125"
             />
             <div className="absolute inset-0 bg-black/50" />
           </div>
@@ -72,6 +66,26 @@ export default function Hero() {
 
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+              {/* <div className="flex items-center justify-center space-x-8 mb-8">
+                <motion.button
+                  onClick={prevSlide}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="bg-industrial-secondary hover:bg-industrial-hover text-white p-3 rounded-full 
+                    transition-colors duration-300"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </motion.button>
+                <motion.button
+                  onClick={nextSlide}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="bg-industrial-secondary hover:bg-industrial-hover text-white p-3 rounded-full 
+                    transition-colors duration-300"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </motion.button>
+              </div> */}
               <AnimatedText
                 text={slides[currentSlide].title}
                 className="text-3xl md:text-4xl font-bold text-white"
