@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Settings, PenTool as Tool, Package, Wrench, Menu, X } from 'lucide-react';
 
@@ -29,22 +29,48 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const hoverTimeoutRef = useRef<number>();
 
   console.log(scrolled);
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+    
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setActiveMenu(null);
+      }
+    };
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
-  const handleMenuClick = (itemName: string) => {
-    if (activeMenu === itemName) {
+  const handleMenuEnter = (itemName: string) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setActiveMenu(itemName);
+  };
+
+  const handleMenuLeave = () => {
+    hoverTimeoutRef.current = window.setTimeout(() => {
       setActiveMenu(null);
-    } else {
+    }, 150);
+  };
+
+  const handleMobileMenuClick = (itemName: string) => {
+    if (activeMenu !== itemName) {
       setActiveMenu(itemName);
+    } else {
+      setActiveMenu(null);
     }
   };
 
@@ -72,12 +98,13 @@ export default function Navbar() {
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
 
-          <div className="hidden md:flex space-x-8">
+          <div ref={menuRef} className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <div
                 key={item.name}
                 className="relative group"
-                onClick={() => handleMenuClick(item.name)}
+                onMouseEnter={() => item.submenu && handleMenuEnter(item.name)}
+                onMouseLeave={handleMenuLeave}
               >
                 <motion.div
                   className="flex items-center space-x-1 cursor-pointer px-3 py-2"
@@ -137,7 +164,7 @@ export default function Navbar() {
               {menuItems.map((item) => (
                 <div key={item.name} className="py-2">
                   <button
-                    onClick={() => handleMenuClick(item.name)}
+                    onClick={() => handleMobileMenuClick(item.name)}
                     className="w-full flex items-center justify-between text-white py-2"
                   >
                     <span>{item.name}</span>
