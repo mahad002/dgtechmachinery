@@ -5,6 +5,7 @@ import WhatWeDo from './components/WhatWeDo';
 import Products from './components/Products';
 import AboutUs from './components/AboutUs';
 import WhyChooseUs from './components/WhyChooseUs';
+import Timeline from './components/Timeline';
 import Partners from './components/Partners';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
@@ -18,6 +19,7 @@ function App() {
       <Products />
       <WhatWeDo />
       <WhyChooseUs />
+      <Timeline />
       <AboutUs />
       <Partners />
       <Footer />
