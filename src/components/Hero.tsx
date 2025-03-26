@@ -9,12 +9,24 @@ const slides = [
     subtitle: 'Elevating machinery excellence nationwide'
   },
   {
-    title: 'Tederic Injection Molding',
-    subtitle: 'Next-generation precision and efficiency'
+    title: 'Crafted in Pakistan, Chosen by Pakistanis',
+    subtitle: 'Engineering innovation for industrial prosperity'
   },
   {
-    title: 'UWA Gen 5 Series',
-    subtitle: 'Advanced automation solutions'
+    title: 'Pakistani Pride, Pakistani Engineering',
+    subtitle: 'Advancing technological self-reliance across sectors'
+  },
+  {
+    title: 'Pakistani Machines, Pakistani Progress',
+    subtitle: 'Building the nation through manufacturing excellence'
+  },
+  {
+    title: 'Pakistan Made, Pakistan Powered',
+    subtitle: 'Strengthening industrial foundations with local expertise'
+  },
+  {
+    title: 'Choose Pakistani, Choose Quality',
+    subtitle: 'Transforming industries with homegrown machinery solutions'
   }
 ];
 
