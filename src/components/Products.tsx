@@ -66,11 +66,7 @@ export default function Products() {
   return (
     <section id="products" className="py-16 relative">
       <div className="absolute inset-0 bg-white dark:bg-gray-900">
-        <img
-          src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2000"
-          alt="Background"
-          className="w-full h-full object-cover opacity-10 dark:opacity-5"
-        />
+        <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 opacity-50" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8">
         <motion.div
@@ -85,8 +81,7 @@ export default function Products() {
         </motion.div>
         <div
           ref={containerRef}
-          className="flex space-x-8 overflow-x-auto pb-8 cursor-grab active:cursor-grabbing 
-            scroll-smooth scrollbar-hide"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8"
           onMouseDown={startDragging}
           onMouseUp={stopDragging}
           onMouseLeave={stopDragging}
@@ -104,9 +99,9 @@ export default function Products() {
                 transition: { type: "spring", stiffness: 300 }
               }}
               className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-xl group
-                cursor-pointer transform-gpu flex-none w-[600px]"
+                cursor-pointer transform-gpu w-full"
             >
-              <div className="h-80 overflow-hidden relative">
+              <div className="h-48 sm:h-64 overflow-hidden relative">
                 <img
                   src={product.image}
                   alt={product.title}
@@ -127,7 +122,7 @@ export default function Products() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full bg-industrial-secondary hover:bg-industrial-hover text-white py-3 px-6 
+                      className="w-full bg-industrial-secondary hover:bg-industrial-hover text-white py-2 sm:py-3 px-4 sm:px-6 
                         rounded-lg font-semibold transition-colors duration-200"
                     >
                       View Details
@@ -135,7 +130,7 @@ export default function Products() {
                   </div>
                 </div>
               </div>
-              <div className="p-8 dark:text-white transform group-hover:translate-y-[-8px] 
+              <div className="p-4 sm:p-6 dark:text-white transform group-hover:translate-y-[-8px] 
                 transition-transform duration-300">
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-industrial-secondary transition-colors">
                   {product.title}
@@ -152,9 +147,6 @@ export default function Products() {
               </div>
             </motion.div>
           ))}
-        </div>
-        <div className="mt-8 text-center text-industrial-primary/60 dark:text-gray-400 text-sm">
-          <p>Drag to explore more products</p>
         </div>
       </div>
     </section>

@@ -38,11 +38,13 @@ const services = [
 ];
 
 export default function Partners() {
-  const [ref] = useInView({
+  const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.01,
     rootMargin: '50px',
   });
+
+  console.log(inView);
 
   return (
     <section ref={ref} id="partners" className="relative bg-white dark:bg-gray-900 py-20 rounded-b-3xl overflow-hidden">
@@ -65,19 +67,19 @@ export default function Partners() {
             </motion.div>
           ))}
         </div>
-        <div className="flex justify-between items-center space-x-8 py-4 overflow-x-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-8 py-8">
           {partners.map((partner, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="flex-shrink-0"
+              className="flex items-center justify-center"
             >
               <img
                 src={partner.url}
                 alt={partner.name}
-                className="h-20 w-auto grayscale hover:grayscale-0 transition-all transform hover:scale-110 duration-300"
+                className="h-12 sm:h-16 w-auto grayscale hover:grayscale-0 transition-all transform hover:scale-110 duration-300"
               />
             </motion.div>
           ))}

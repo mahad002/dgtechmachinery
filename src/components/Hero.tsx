@@ -30,7 +30,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative h-screen bg-gray-900">
+    <div className="relative h-screen bg-gray-900 pt-20 md:pt-0">
       <div className="relative h-full flex items-center justify-center">
         <div className="relative w-full h-full">
           <div className="absolute inset-0">
@@ -65,7 +65,7 @@ export default function Hero() {
           </motion.button>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 md:space-y-8">
               {/* <div className="flex items-center justify-center space-x-8 mb-8">
                 <motion.button
                   onClick={prevSlide}
@@ -88,12 +88,12 @@ export default function Hero() {
               </div> */}
               <AnimatedText
                 text={slides[currentSlide].title}
-                className="text-3xl md:text-4xl font-bold text-white"
+                className="text-2xl md:text-4xl font-bold text-white"
                 delay={0.2}
               />
               <AnimatedText
                 text={slides[currentSlide].subtitle}
-                className="text-4xl md:text-6xl text-white/90 max-w-4xl mx-auto font-bold"
+                className="text-3xl md:text-6xl text-white/90 max-w-4xl mx-auto font-bold"
                 delay={0.4}
               />
               <motion.p

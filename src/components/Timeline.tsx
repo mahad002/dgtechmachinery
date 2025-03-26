@@ -60,62 +60,72 @@ export default function Timeline() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold mb-4">Our Journey</h2>
-          <p className="text-xl text-white/80">Milestones that shaped our success</p>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-industrial-secondary">Our Journey</h2>
+          <p className="text-base md:text-lg text-white/90">Milestones that shaped our success</p>
         </motion.div>
 
         <div ref={ref} className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-industrial-secondary/30" />
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-industrial-secondary via-industrial-hover to-industrial-secondary" />
 
           {timelineData.map((item, index) => (
-            <motion.div
-              key={item.year}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`relative flex items-center justify-between mb-16 ${
-                index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-              }`}
-            >
-              {/* Timeline content */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+            <div key={item.year} className="relative">
+              <motion.div
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className={`relative flex items-start justify-between mb-16 ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                } flex-col md:items-start pl-16 md:pl-0`}
+              >
+                {/* Mobile year indicator */}
+                <div className="md:hidden absolute left-4 -translate-x-1/2 top-0 bg-industrial-secondary text-white px-4 py-2 rounded-full text-base font-bold shadow-lg">
+                  {item.year}
+                </div>
+                
+                {/* Timeline content */}
+                <div className={`md:w-5/12 w-full ${
+                  index % 2 === 0 ? 'md:text-right' : 'md:text-left'
+                } text-left`}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="bg-white/10 backdrop-blur-lg p-6 rounded-xl"
+                  className="bg-white/10 backdrop-blur-lg p-6 md:p-8 rounded-xl relative shadow-xl border border-white/10"
                 >
-                  <span className="text-industrial-secondary text-4xl font-bold">{item.year}</span>
-                  <h3 className="text-2xl font-bold mt-2 mb-4 flex items-center gap-2 justify-end">
+                  <span className="hidden md:block text-industrial-secondary text-3xl md:text-4xl font-bold mb-3">{item.year}</span>
+                  <h3 className={`text-lg md:text-xl font-bold mt-2 mb-3 flex items-center gap-2 ${
+                    index % 2 === 0 ? 'md:justify-end' : 'justify-start'
+                  }`}>
                     {index % 2 === 0 ? (
                       <>
                         {item.title}
-                        {<item.icon className="w-6 h-6 text-industrial-hover" />}
+                        {<item.icon className="w-8 h-8 text-industrial-secondary" />}
                       </>
                     ) : (
                       <>
-                        {<item.icon className="w-6 h-6 text-industrial-hover" />}
+                        {<item.icon className="w-8 h-8 text-industrial-secondary" />}
                         {item.title}
                       </>
                     )}
                   </h3>
-                  <p className="text-white/80 mb-4">{item.description}</p>
+                  <p className="text-sm md:text-base text-white/90 mb-3 leading-relaxed">{item.description}</p>
                   {item.details && (
-                    <p className="text-white/60 text-sm">{item.details}</p>
+                    <p className="text-xs md:text-sm text-white/70 leading-relaxed italic">{item.details}</p>
                   )}
                 </motion.div>
               </div>
 
-              {/* Timeline dot */}
+              {/* Timeline dot - Hidden on mobile */}
               <motion.div
                 initial={{ scale: 0 }}
                 animate={inView ? { scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.2 }}
-                className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-industrial-secondary 
-                  rounded-full border-4 border-white shadow-lg z-10"
+                className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-industrial-secondary 
+                  rounded-full border-4 border-white shadow-xl z-10"
               />
-            </motion.div>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>
