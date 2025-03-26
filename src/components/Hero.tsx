@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { ChevronRight, ChevronLeft, ArrowRight, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronRight, ChevronLeft, ArrowRight } from 'lucide-react';
 import AnimatedText from './AnimatedText';
 
 const slides = [
@@ -32,14 +32,17 @@ const slides = [
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isExpanded, setIsExpanded] = useState(false);
   
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 8000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className={`h-full h-screen md:h-screen bg-gray-900 pt-16 md:pt-0 
-      transition-all duration-500 overflow-hidden`}>
+    <div className="relative h-screen bg-gray-900 pt-16 md:pt-0 overflow-hidden">
       <div className="relative h-full flex items-center justify-center">
         <div className="relative w-full h-full">
           <div className="absolute inset-0">
@@ -48,7 +51,7 @@ export default function Hero() {
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
-              className="w-full h-full object-cover scale-[4] md:scale-[3] lg:scale-[1.5]"
+              className="w-full h-full object-cover scale-[2] md:scale-[1.75]"
             />
             <div className="absolute inset-0 bg-black/50" />
           </div>
@@ -57,57 +60,31 @@ export default function Hero() {
             onClick={prevSlide}
             className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-1 md:p-2 rounded-full bg-white/10 
               hover:bg-white/20 text-white backdrop-blur-sm z-10"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+            whileHover={{ scale: 1.1 }}>
+            <ChevronLeft className="w-6 h-6" />
           </motion.button>
           
           <motion.button
             onClick={nextSlide}
             className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-1 md:p-2 rounded-full bg-white/10 
               hover:bg-white/20 text-white backdrop-blur-sm z-10"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+            whileHover={{ scale: 1.1 }}>
+            <ChevronRight className="w-6 h-6" />
           </motion.button>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
               {/* Mobile View */}
               <div className="md:hidden flex flex-col items-center space-y-4 px-4">
                 <h2 className="text-2xl font-bold text-white text-center mt-8">
                   {slides[currentSlide].title}
                 </h2>
-                <motion.div 
-                  animate={{ height: isExpanded ? 'auto' : '0' }}
-                  className="overflow-hidden"
-                >
-                  <motion.div
-                    initial={false}
-                    animate={{ opacity: isExpanded ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="flex flex-col items-center space-y-3"
-                  >
-                    <h3 className="text-xl font-bold text-white/90 leading-tight text-center">
-                      {slides[currentSlide].subtitle}
-                    </h3>
-                    <p className="text-sm text-white/80 leading-relaxed max-w-xs text-center">
-                      Leading provider of industrial machinery solutions in Pakistan
-                    </p>
-                  </motion.div>
-                </motion.div>
-                
-                <motion.button
-                  onClick={() => setIsExpanded(!isExpanded)}
-                  className="flex items-center space-x-1 text-white/80 text-sm"
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span>{isExpanded ? 'Show Less' : 'Learn More'}</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 
-                    ${isExpanded ? 'rotate-180' : ''}`} />
-                </motion.button>
+                <h3 className="text-xl font-bold text-white/90 leading-tight text-center">
+                  {slides[currentSlide].subtitle}
+                </h3>
+                <p className="text-sm text-white/80 leading-relaxed max-w-xs text-center">
+                  Leading provider of industrial machinery solutions in Pakistan
+                </p>
                 
                 <motion.button
                   whileTap={{ scale: 0.95 }}
