@@ -35,12 +35,12 @@ const menuItems = [
     name: 'About',
     href: '#about'
   },
+  { name: 'Contact',
+    href: '#contact' },
   { 
     name: 'Partners',
     href: '#partners'
   },
-  { name: 'Contact',
-    href: '#contact' }
 ];
 
 export default function Navbar() {
