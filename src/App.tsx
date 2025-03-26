@@ -9,6 +9,7 @@ import Timeline from './components/Timeline';
 import Partners from './components/Partners';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <WhyChooseUs />
       <Timeline />
       <AboutUs />
+      <Contact />
       <Partners />
       <Footer />
     </div>
