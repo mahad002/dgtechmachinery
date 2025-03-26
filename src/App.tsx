@@ -35,11 +35,11 @@ export default function App() {
         <section id="about">
           <AboutUs />
         </section>
-        <section id="contact">
-          <Contact />
-        </section>
         <section id="partners">
           <Partners />
+        </section>
+        <section id="contact">
+          <Contact />
         </section>
       </main>
       <Footer />
