@@ -38,8 +38,8 @@ export default function Hero() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className={`relative ${isExpanded ? 'h-[55vh]' : 'h-[45vh]'} md:h-screen bg-gray-900 pt-16 md:pt-0 
-      overflow-x-hidden transition-all duration-500`}>
+    <div className={`relative ${isExpanded ? 'h-[60vh]' : 'h-[45vh]'} md:h-screen bg-gray-900 pt-16 md:pt-0 
+      transition-all duration-500`}>
       <div className="relative h-full flex items-center justify-center">
         <div className="relative w-full h-full">
           <div className="absolute inset-0">
@@ -77,7 +77,7 @@ export default function Hero() {
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Mobile View */}
               <div className="md:hidden flex flex-col items-center space-y-4 px-4">
-                <h2 className="text-2xl font-bold text-white text-center">
+                <h2 className="text-2xl font-bold text-white text-center mt-8">
                   {slides[currentSlide].title}
                 </h2>
                 <motion.div 
