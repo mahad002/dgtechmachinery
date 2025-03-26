@@ -20,27 +20,27 @@ const menuItems = [
   {
     name: 'What We Do',
     href: '#what-we-do',
-    // submenu: [
-    //   { name: 'Manufacturing', icon: Settings, description: 'Custom manufacturing solutions' },
-    //   { name: 'Automation', icon: Tool, description: 'Industrial automation systems' },
-    //   { name: 'Maintenance', icon: Wrench, description: 'Comprehensive maintenance services' },
-    //   { name: 'Integration', icon: Package, description: 'Seamless system integration' }
-    // ]
+    submenu: [
+      { name: 'Manufacturing', icon: Settings, description: 'Custom manufacturing solutions' },
+      { name: 'Automation', icon: Tool, description: 'Industrial automation systems' },
+      { name: 'Maintenance', icon: Wrench, description: 'Comprehensive maintenance services' },
+      { name: 'Integration', icon: Package, description: 'Seamless system integration' }
+    ]
   },
   {
     name: 'Why Choose Us',
     href: '#why-choose-us'
   },
   {
-    name: 'About',
-    href: '#about'
+    name: 'Journey',
+    href: '#timeline'
   },
-  { name: 'Contact',
-    href: '#contact' },
   { 
     name: 'Partners',
     href: '#partners'
   },
+  { name: 'Contact',
+    href: '#contact' }
 ];
 
 export default function Navbar() {
