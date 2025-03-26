@@ -42,7 +42,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative h-screen bg-gray-900 pt-16 md:pt-0 overflow-hidden">
+    <div className={`h-full h-screen md:h-screen bg-gray-900 pt-16 md:pt-0 
+      transition-all duration-500 overflow-hidden`}>
       <div className="relative h-full flex items-center justify-center">
         <div className="relative w-full h-full">
           <div className="absolute inset-0">
@@ -51,7 +52,7 @@ export default function Hero() {
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
-              className="w-full h-full object-cover scale-[2] md:scale-[1.75]"
+              className="w-full h-full object-cover scale-[4] md:scale-[3] lg:scale-[1.5]"
             />
             <div className="absolute inset-0 bg-black/50" />
           </div>
