@@ -38,7 +38,7 @@ export default function Hero() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className={`relative ${isExpanded ? 'h-[55vh]' : 'h-[35vh]'} md:h-screen bg-gray-900 pt-16 md:pt-0 
+    <div className={`relative ${isExpanded ? 'h-[55vh]' : 'h-[45vh]'} md:h-screen bg-gray-900 pt-16 md:pt-0 
       overflow-x-hidden transition-all duration-500`}>
       <div className="relative h-full flex items-center justify-center">
         <div className="relative w-full h-full">
