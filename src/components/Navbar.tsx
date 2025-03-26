@@ -33,6 +33,7 @@ export default function Navbar() {
   const hoverTimeoutRef = useRef<number>();
 
   console.log(scrolled);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -78,7 +79,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed w-full z-50 transition-all duration-500 bg-black/50 backdrop-blur-sm"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-black/50 backdrop-blur-sm"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 font-medium">
@@ -155,19 +156,19 @@ export default function Navbar() {
           {/* Mobile menu */}
           <motion.div
             initial={false}
-            animate={{ height: mobileMenuOpen ? 'auto' : 0, opacity: mobileMenuOpen ? 1 : 0 }}
+            animate={mobileMenuOpen ? { height: 'auto', opacity: 1, x: 0 } : { height: 0, opacity: 0, x: '100%' }}
             transition={{ duration: 0.2 }}
-            className={`md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-lg overflow-hidden
-              ${mobileMenuOpen ? 'border-t border-white/10' : ''}`}
+            className={`md:hidden fixed top-20 left-0 right-0 bg-black/95 backdrop-blur-lg overflow-hidden
+              ${mobileMenuOpen ? 'border-t border-white/10' : ''} max-h-[calc(100vh-5rem)] z-50`}
           >
-            <div className="px-4 py-2">
+            <div className="px-4 py-4 overflow-y-auto">
               {menuItems.map((item) => (
                 <div key={item.name} className="py-2">
                   <button
                     onClick={() => handleMobileMenuClick(item.name)}
-                    className="w-full flex items-center justify-between text-white py-2"
+                    className="w-full flex items-center justify-between text-white py-3"
                   >
-                    <span>{item.name}</span>
+                    <span className="text-lg">{item.name}</span>
                     {item.submenu && (
                       <ChevronDown
                         className={`w-4 h-4 transition-transform duration-200
@@ -186,7 +187,7 @@ export default function Navbar() {
                         <a
                           key={subItem.name}
                           href={`#${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="flex items-center space-x-3 p-2 text-white/80 hover:text-white"
+                          className="flex items-center space-x-3 p-3 text-white/80 hover:text-white"
                         >
                           {React.createElement(subItem.icon, { className: "w-5 h-5" })}
                           <span>{subItem.name}</span>
