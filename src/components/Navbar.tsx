@@ -85,13 +85,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <a href="#home" className="flex-shrink-0">
+            <a href="#home" className="flex-shrink-0 relative rounded-xl overflow-hidden">
+            <div className="absolute inset-0 bg-industrial-primary/30 backdrop-blur-sm" />
             <img
               src="https://dgtechmachinery.com/wp-content/uploads/2024/08/DG-TRCH-MACHINERY-03-1.webp"
               alt="DG Tech Machinery"
-              className="h-12 w-auto"
+              className="h-16 w-auto relative z-10 p-2"
             />
-          </a>
+            </a>
           
           {/* Mobile menu button */}
           <button
