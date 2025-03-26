@@ -7,22 +7,22 @@ const reasons = [
   {
     icon: Award,
     title: 'Industry Excellence',
-    description: 'Over 25 years of experience delivering top-tier industrial solutions'
+    description: '25+ years of excellence'
   },
   {
     icon: Clock,
     title: '24/7 Support',
-    description: 'Round-the-clock technical support and maintenance services'
+    description: 'Always here to help'
   },
   {
     icon: Users,
     title: 'Expert Team',
-    description: 'Highly skilled professionals with deep industry knowledge'
+    description: 'Skilled professionals'
   },
   {
     icon: Shield,
     title: 'Quality Assured',
-    description: 'ISO certified processes and international quality standards'
+    description: 'ISO certified quality'
   }
 ];
 
@@ -58,6 +58,7 @@ export default function WhyChooseUs() {
           <p className="text-xl text-industrial-primary/80 dark:text-gray-300">
             Your trusted partner in industrial innovation
           </p>
+          <p className="text-lg md:text-xl text-industrial-primary/80 dark:text-gray-300">Your trusted partner</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (

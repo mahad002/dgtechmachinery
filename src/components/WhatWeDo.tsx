@@ -7,22 +7,22 @@ const services = [
   {
     icon: Factory,
     title: 'Manufacturing Solutions',
-    description: 'State-of-the-art machinery for modern manufacturing needs'
+    description: 'Modern manufacturing solutions'
   },
   {
     icon: Cog,
     title: 'Process Automation',
-    description: 'Smart automation solutions to optimize your production'
+    description: 'Smart production optimization'
   },
   {
     icon: Wrench,
     title: 'Maintenance Services',
-    description: 'Comprehensive maintenance and support programs'
+    description: 'Expert support & maintenance'
   },
   {
     icon: Truck,
     title: 'Logistics Integration',
-    description: 'End-to-end logistics solutions for your business'
+    description: 'Seamless logistics solutions'
   }
 ];
 
@@ -56,9 +56,7 @@ export default function WhatWeDo() {
           <h2 className="text-4xl font-bold text-industrial-primary dark:text-white mb-4">
             What We Do
           </h2>
-          <p className="text-xl text-industrial-primary/80 dark:text-gray-300">
-            Comprehensive industrial solutions for your business
-          </p>
+          <p className="text-lg md:text-xl text-industrial-primary/80 dark:text-gray-300">Industrial solutions for you</p>
         </motion.div>
         
         <div ref={itemsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

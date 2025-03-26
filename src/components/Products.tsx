@@ -7,28 +7,28 @@ const products = [
     title: 'Injection Molding Machines',
     image: 'https://dgtechmachinery.com/wp-content/uploads/2024/08/Untitled-1.webp',
     hoverImage: 'https://dgtechmachinery.com/wp-content/uploads/2024/08/DG-Tech-Product-Images-12.webp',
-    description: 'Advanced injection molding solutions for precise manufacturing needs.',
+    description: 'Precision molding solutions',
     specs: ['Clamping Force: 50-3000T', 'Shot Weight: 50-15000g', 'Energy Efficient']
   },
   {
     title: 'Extrusion Equipment',
     image: 'https://dgtechmachinery.com/wp-content/uploads/2024/08/DG-Tech-Product-Images-12.webp',
     hoverImage: 'https://dgtechmachinery.com/wp-content/uploads/2024/10/TJ-HB%E7%B3%BB%E5%88%97%E5%8D%95%E5%B7%A5%E4%BD%8D%E4%B8%AD%E7%A9%BA%E5%90%B9%E5%A1%91%E6%88%90%E5%9E%8B%E6%9C%BA%E7%AC%AC28%E9%A1%B5.webp',
-    description: 'High-performance extrusion machinery for continuous production.',
+    description: 'High-performance extrusion',
     specs: ['Output: 50-500 kg/h', 'Screw Diameter: 25-120mm', 'Multi-layer Capable']
   },
   {
     title: 'Blow Molding Systems',
     image: 'https://dgtechmachinery.com/wp-content/uploads/2024/08/Single-Engine-Set.webp',
     hoverImage: 'https://dgtechmachinery.com/wp-content/uploads/2024/09/Mask-group-15.webp',
-    description: 'Efficient blow molding systems for container manufacturing.',
+    description: 'Container manufacturing',
     specs: ['Bottle Size: 100ml-20L', 'Output: Up to 6000 BPH', 'Quick Mold Change']
   },
   {
     title: 'CNC Machinery',
     image: 'https://dgtechmachinery.com/wp-content/uploads/2024/09/Mask-group-15.webp',
     hoverImage: 'https://dgtechmachinery.com/wp-content/uploads/2024/08/Untitled-1.webp',
-    description: 'Precision CNC machines for complex manufacturing operations.',
+    description: 'Precision manufacturing',
     specs: ['5-Axis Capability', 'Accuracy: ±0.005mm', 'Advanced Tool Management']
   }
 ];
@@ -77,7 +77,7 @@ export default function Products() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Products</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">Innovative solutions for modern manufacturing</p>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">Modern manufacturing solutions</p>
         </motion.div>
         <div
           ref={containerRef}
@@ -135,8 +135,8 @@ export default function Products() {
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-industrial-secondary transition-colors">
                   {product.title}
                 </h3>
-                <p className="text-industrial-primary/80 dark:text-gray-300 mb-4">{product.description}</p>
-                <div className="space-y-2">
+                <p className="text-sm md:text-base text-industrial-primary/80 dark:text-gray-300 mb-4">{product.description}</p>
+                <div className="hidden md:block space-y-2">
                   {product.specs.map((spec, i) => (
                     <p key={i} className="text-sm text-industrial-primary/70 dark:text-gray-400 flex items-center">
                       <span className="w-2 h-2 bg-industrial-secondary rounded-full mr-2 group-hover:animate-pulse" />
