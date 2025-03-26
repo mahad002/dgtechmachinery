@@ -20,12 +20,12 @@ const menuItems = [
   {
     name: 'What We Do',
     href: '#what-we-do',
-    submenu: [
-      { name: 'Manufacturing', icon: Settings, description: 'Custom manufacturing solutions' },
-      { name: 'Automation', icon: Tool, description: 'Industrial automation systems' },
-      { name: 'Maintenance', icon: Wrench, description: 'Comprehensive maintenance services' },
-      { name: 'Integration', icon: Package, description: 'Seamless system integration' }
-    ]
+    // submenu: [
+    //   { name: 'Manufacturing', icon: Settings, description: 'Custom manufacturing solutions' },
+    //   { name: 'Automation', icon: Tool, description: 'Industrial automation systems' },
+    //   { name: 'Maintenance', icon: Wrench, description: 'Comprehensive maintenance services' },
+    //   { name: 'Integration', icon: Package, description: 'Seamless system integration' }
+    // ]
   },
   {
     name: 'Why Choose Us',
@@ -153,15 +153,15 @@ export default function Navbar() {
           <motion.div
             initial={false}
             animate={mobileMenuOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-white"
+            className="md:hidden overflow-hidden bg-white absolute top-full left-0 right-0 shadow-lg"
           >
-            <div className="px-4 pt-2 pb-3 space-y-1">
+            <div className="px-4 py-4 space-y-2">
               {menuItems.map((item) => (
                 <div key={item.name}>
                   <a
                     href={item.href}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-industrial-primary 
-                      hover:text-industrial-secondary hover:bg-gray-50"
+                    className="block px-4 py-3 rounded-lg text-base font-medium text-industrial-primary 
+                      hover:text-industrial-secondary hover:bg-gray-50 transition-colors duration-200"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       if (item.submenu) {
@@ -171,14 +171,14 @@ export default function Navbar() {
                   >
                     {item.name}
                   </a>
-                  
                   {item.submenu && activeMenu === item.name && (
-                    <div className="pl-4 space-y-1">
+                    <div className="pl-6 mt-1 space-y-2 border-l-2 border-industrial-secondary/20">
                       {item.submenu.map((subItem) => (
                         <a
                           key={subItem.name}
                           href={`#${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-industrial-secondary"
+                          className="block px-4 py-2 rounded-lg text-sm text-gray-600 hover:text-industrial-secondary 
+                            hover:bg-gray-50/80 transition-colors duration-200"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {subItem.name}
