@@ -53,10 +53,10 @@ export default function WhatWeDo() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-industrial-primary dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-industrial-primary dark:text-white mb-4">
             What We Do
           </h2>
-          <p className="text-lg md:text-xl text-industrial-primary/80 dark:text-gray-300">Industrial solutions for you</p>
+          <p className="text-sm md:text-lg text-industrial-primary/80 dark:text-gray-300">Industrial solutions for you</p>
         </motion.div>
         
         <div ref={itemsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -80,10 +80,10 @@ export default function WhatWeDo() {
                 {React.createElement(service.icon, {
                   className: "w-12 h-12 text-industrial-secondary mb-4"
                 })}
-                <h3 className="text-xl font-semibold mb-2 text-industrial-primary dark:text-white">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-industrial-primary dark:text-white">
                   {service.title}
                 </h3>
-                <p className="text-industrial-primary/80 dark:text-gray-300">
+                <p className="text-sm md:text-base text-industrial-primary/80 dark:text-gray-300">
                   {service.description}
                 </p>
               </div>

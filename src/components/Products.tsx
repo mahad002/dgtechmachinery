@@ -76,7 +76,7 @@ export default function Products() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Products</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Products</h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">Modern manufacturing solutions</p>
         </motion.div>
         <div
@@ -132,10 +132,10 @@ export default function Products() {
               </div>
               <div className="p-4 sm:p-6 dark:text-white transform group-hover:translate-y-[-8px] 
                 transition-transform duration-300">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-industrial-secondary transition-colors">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 group-hover:text-industrial-secondary transition-colors">
                   {product.title}
                 </h3>
-                <p className="text-sm md:text-base text-industrial-primary/80 dark:text-gray-300 mb-4">{product.description}</p>
+                <p className="text-xs md:text-sm text-industrial-primary/80 dark:text-gray-300 mb-4">{product.description}</p>
                 <div className="hidden md:block space-y-2">
                   {product.specs.map((spec, i) => (
                     <p key={i} className="text-sm text-industrial-primary/70 dark:text-gray-400 flex items-center">

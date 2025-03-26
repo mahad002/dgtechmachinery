@@ -52,13 +52,10 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-industrial-primary dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-industrial-primary dark:text-white mb-4">
             Why Choose Us
           </h2>
-          <p className="text-xl text-industrial-primary/80 dark:text-gray-300">
-            Your trusted partner in industrial innovation
-          </p>
-          <p className="text-lg md:text-xl text-industrial-primary/80 dark:text-gray-300">Your trusted partner</p>
+          <p className="text-sm md:text-lg text-industrial-primary/80 dark:text-gray-300">Your trusted partner</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
@@ -79,10 +76,10 @@ export default function WhyChooseUs() {
                     className: "w-8 h-8 text-white"
                   })}
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-industrial-primary dark:text-white">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-industrial-primary dark:text-white">
                   {reason.title}
                 </h3>
-                <p className="text-industrial-primary/80 dark:text-gray-300">
+                <p className="text-sm md:text-base text-industrial-primary/80 dark:text-gray-300">
                   {reason.description}
                 </p>
               </div>
