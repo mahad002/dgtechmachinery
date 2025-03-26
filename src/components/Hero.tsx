@@ -101,7 +101,7 @@ export default function Hero() {
               <div className="hidden md:block text-center space-y-8">
                 <AnimatedText
                   text={slides[currentSlide].title}
-                  className="text-4xl font-bold text-white"
+                  className="text-2xl font-bold text-white"
                   delay={0.2}
                 />
                 <AnimatedText
